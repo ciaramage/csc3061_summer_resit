@@ -25,5 +25,6 @@ function [images, labels] = import_data(file_name)
      images(:,:,3,im) = reshape(blue_pix, IMAGE_HEIGHT, IMAGE_WIDTH);
      
      images = uint8(images);
+     labels = categorical(labels);
  end
 end
