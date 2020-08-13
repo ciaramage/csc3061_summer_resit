@@ -1,0 +1,64 @@
+% % function [] = cnn(train_data, train_lbl, test_data, test_lbl)
+% imageSize = [32 32 3];
+% pixelRange = [-4 4];
+% imageAugmenter = imageDataAugmenter( ...
+%     'RandXReflection',true, ...
+%     'RandXTranslation',pixelRange, ...
+%     'RandYTranslation',pixelRange);
+% augimdsTrain = augmentedImageDatastore(imageSize,training_images,training_labels, ...
+%     'DataAugmentation',imageAugmenter, ...
+%     'OutputSizeMode','randcrop');
+
+% imageSize = [32 32 1];
+%     layers = [
+%     imageInputLayer(imageSize)
+%     
+%     convolution2dLayer(3,8,'Padding','same')
+%     batchNormalizationLayer
+%     reluLayer
+%     
+%     maxPooling2dLayer(2,'Stride',2)
+%     
+%     convolution2dLayer(3,16,'Padding','same')
+%     batchNormalizationLayer
+%     reluLayer
+%     
+%     maxPooling2dLayer(2,'Stride',2)
+%     
+%     convolution2dLayer(3,32,'Padding','same')
+%     batchNormalizationLayer
+%     reluLayer
+%     
+%     fullyConnectedLayer(10)
+%     softmaxLayer
+%     classificationLayer];
+% 
+%     train_gray_data = {training_images, training_labels};
+%     test_gray_data = { test_gray_images, categorical(testing_labels)};
+%     
+%     options = trainingOptions('sgdm', ...
+%     'InitialLearnRate',0.01, ...
+%     'MaxEpochs',4, ...
+%     'Shuffle','every-epoch', ...
+%     'ValidationData',test_gray_data, ...
+%     'ValidationFrequency',30, ...
+%     'Verbose',false, ...
+%     'Plots','training-progress');
+% 
+% 
+% 
+% %  net = trainNetwork(training_images, categorical( training_labels) , layers, options);
+%  net = trainNetwork(train_gray_images, categorical(training_labels) , layers, options);
+
+% % classify validation images and compute accuracy
+pred = classify(net, test_gray_images);
+validation = testing_labels;
+
+total = 0;
+for i=1:length(pred)
+    if uint8(pred(i)) == uint8(validation(i))
+        total = total +1;
+    end
+end
+
+% % end
