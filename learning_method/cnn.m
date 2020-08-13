@@ -35,7 +35,7 @@ function [predict] = cnn(train_data, test_data, imageSize)
 
 
     %  net = trainNetwork(training_images, categorical( training_labels) , layers, options);
-     net = trainNetwork(train_data{1,1}, train_data{1,2} , layers, options);
+     net = trainNetwork(train_data, layers, options);
 
     % classify validation images and compute accuracy
     predict = classify(net, test_data{1,1});
