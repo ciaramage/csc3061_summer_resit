@@ -1,4 +1,4 @@
- % % remember to add the datasets folder and its subfolders to the path
+ % remember to add the datasets folder and its subfolders to the path
 [training_images, training_labels] = import_data('training.mat');
 [testing_images, testing_labels] = import_data('testing.mat');
 
@@ -6,21 +6,12 @@
 % images = cat(4, training_images, testing_images);
 % labels = [training_labels; testing_labels];
 
-% % label encoding
-% label_class = [0 1 2 3 4 5 6 7 8 9];
-% label_object = {'airplane','automobile','bird','cat','deer','dog','frog','horse','ship','truck'};
-% training_labels = categorical(training_labels, label_class, label_object);
-% testing_labels = categorical(testing_labels, label_class, label_object);
-
 % % convert 4d array of color images to 3d array of grayscale images
 train_gray_images = color2gray(training_images);
 test_gray_images = color2gray(testing_images);
 
 % % images to analyse
 [analysis_imgs, analysis_labels] = analysis_images(training_images, training_labels);
-
-
-
 
 % % hog feature vectors
 
