@@ -40,8 +40,15 @@ test_gray_images = color2gray(testing_images);
 %training_edges_hog = hog_feature_vectors(training_edges);
 %[model, resub_loss, cross_val_model, cv_loss] = knn(training_edges_hog, training_labels, 7 );
 
+% % cnn analysis
+% % color, not augmented
+% cnn_analysis(training_images, training_labels, testing_images, testing_labels, true, false);
+% % color, augmented
+% cnn_analysis(training_images, training_labels, testing_images, testing_labels, true, true);
+% % grayscale, not augmented
+% cnn_analysis(train_gray_images, training_labels, test_gray_images, testing_labels, false, false);
+% % grayscale, augmented
+% cnn_analysis(train_gray_images, training_labels, test_gray_images, testing_labels, false, true);
 
-
-% https://uk.mathworks.com/help/matlab/ref/cat.html
 
 
