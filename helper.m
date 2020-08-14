@@ -11,7 +11,7 @@ train_gray_images = color2gray(training_images);
 test_gray_images = color2gray(testing_images);
 
 % % images to analyse
-[analysis_imgs, analysis_labels] = analysis_images(training_images, training_labels);
+% [analysis_imgs, analysis_labels] = analysis_images(training_images, training_labels);
 
 % % hog feature vectors
 
@@ -50,5 +50,9 @@ test_gray_images = color2gray(testing_images);
 % % grayscale, augmented
 % cnn_analysis(train_gray_images, training_labels, test_gray_images, testing_labels, false, true);
 
-
+% % deep neural network analysis
+% % color images
+% dnn_analysis( training_images, training_labels, testing_images, testing_labels, true);
+% % grayscale images
+% dnn_analysis(training_images, training_labels, testing_images, testing_labels, false);
 

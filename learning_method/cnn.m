@@ -32,8 +32,7 @@ function [predict] = cnn(train_data, test_data, imageSize)
     'ValidationFrequency',30, ...
     'Verbose',false, ...
     'Plots','training-progress');
-
-
+   
     %  net = trainNetwork(training_images, categorical( training_labels) , layers, options);
      net = trainNetwork(train_data, layers, options);
 
